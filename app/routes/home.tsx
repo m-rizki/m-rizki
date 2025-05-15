@@ -1,13 +1,24 @@
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
-
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Muhamad Rizki - Software engineer" },
+    {
+      name: "description",
+      content: "Software engineer",
+    },
   ];
 }
 
 export default function Home() {
-  return <Welcome />;
+  return (
+    <ul>
+      {Array(40)
+        .fill("scroll")
+        .map((item, _index) => (
+          <li key={_index}>
+            {item} {_index + 1}
+          </li>
+        ))}
+    </ul>
+  );
 }
