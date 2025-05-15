@@ -1,4 +1,6 @@
+import Hero from "~/components/home/hero";
 import type { Route } from "./+types/home";
+import HomeProjects from "~/components/home/home-projects";
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "Muhamad Rizki - Software engineer" },
@@ -11,14 +13,9 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <ul>
-      {Array(40)
-        .fill("scroll")
-        .map((item, _index) => (
-          <li key={_index}>
-            {item} {_index + 1}
-          </li>
-        ))}
-    </ul>
+    <>
+      <Hero />
+      <HomeProjects />
+    </>
   );
 }

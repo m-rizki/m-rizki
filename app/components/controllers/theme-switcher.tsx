@@ -29,7 +29,7 @@ export default function ThemeSwitcher() {
   if (!hydrated) return null;
 
   return (
-    <label className="swap swap-rotate btn btn-circle shadow-sm font-bold bg-base-300 border-base-content/30">
+    <label className="swap swap-rotate btn btn-circle shadow-sm font-bold bg-base-300 border-base-content/10">
       <input
         type="checkbox"
         checked={theme === "light"}

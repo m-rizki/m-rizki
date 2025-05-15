@@ -3,11 +3,14 @@ import Navbar from "../navbar";
 
 export default function SiteLayout() {
   return (
-    <div className="px-4 sm:px-8">
+    <>
       <Navbar />
-      <main>
-        <Outlet />
-      </main>
-    </div>
+
+      <div className="px-8 sm:px-16 lg:px-32 xl:px-64">
+        <main>
+          <Outlet />
+        </main>
+      </div>
+    </>
   );
 }
