@@ -8,13 +8,11 @@ interface CardProjectProps {
 
 export default function CardProject({ project }: CardProjectProps) {
   return (
-    <div className="h-80 w-full max-w-xs bg-base-200/60 rounded-3xl p-8  transition duration-200 ease-in-out hover:-translate-y-1 hover:bg-base-300">
+    <div className="h-80 w-full max-w-xs bg-base-100 rounded-3xl p-8  transition duration-200 ease-in-out hover:-translate-y-1 hover:bg-base-300 border border-base-content/20">
       <div className="flex h-12 w-12 items-center justify-center rounded-full shadow-md bg-base-100 ring-1 ring-base-content/10 dark:border dark:border-base-content/10 dark:bg-base-content/5">
         {project.logo}
       </div>
-      <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-        {project.name}
-      </h2>
+      <h2 className="mt-6 text-base font-semibol">{project.name}</h2>
       <p className="mt-4 text-xs text-base-content/60">{project.description}</p>
       <div className="mt-8 flex gap-2 items-center">
         {project.link.href && (

@@ -1,7 +1,7 @@
 import FaGithub from "../icons/fa-github";
 import FaLinkedin from "../icons/fa-linkedin";
 
-export default function Hero() {
+export default function HomeHero() {
   return (
     <div className="hero bg-base-100 min-h-screen">
       <div className="hero-content p-0 justify-self-start">

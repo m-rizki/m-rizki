@@ -29,7 +29,9 @@ export default function HomeProjects() {
         )}
       </div>
       <div className="text-center">
-        <button className="btn btn-sm btn-outline btn-primary">MORE</button>
+        <button className="btn btn-sm btn-ghost btn-primary border-base-content/20 hover:border-none">
+          More
+        </button>
       </div>
     </div>
   );
