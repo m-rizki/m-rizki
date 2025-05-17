@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-import Navbar from "../navbar";
+import Navbar from "../navbar/navbar";
 
 export default function SiteLayout() {
   return (
@@ -11,6 +11,7 @@ export default function SiteLayout() {
           <Outlet />
         </main>
       </div>
+      {/* TODO : ADD FOOTER */}
     </>
   );
 }

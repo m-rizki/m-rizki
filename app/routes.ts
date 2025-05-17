@@ -6,7 +6,13 @@ import {
 } from "@react-router/dev/routes";
 
 export default [
-  layout("./components/layouts/site-layout.tsx", [index("routes/home.tsx")]),
+  // TODO: ADD ROUTING TO ABOUT, ARTICLE, PROJECTS
+  layout("./components/layouts/site-layout.tsx", [
+    index("routes/home.tsx"),
+    route("/about", "./routes/about.tsx"),
+    route("/projects", "./routes/projects.tsx"),
+    route("/articles", "./routes/articles.tsx"),
+  ]),
 
   // issue (temporary solution) : https://github.com/remix-run/react-router/issues/13516
   route(

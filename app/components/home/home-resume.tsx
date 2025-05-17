@@ -10,7 +10,7 @@ export default function HomeResume() {
       </h2>
       <div className="my-6 space-y-6">
         {resumeList.map((resume) => (
-          <div className="flex justify-between">
+          <div key={resume.id} className="flex justify-between">
             <div className="flex items-center gap-x-4">
               <div>{resume.logo}</div>
               <div>
@@ -26,7 +26,7 @@ export default function HomeResume() {
         ))}
       </div>
 
-      <a className="btn btn-sm btn-ghost btn-primary btn-block border-base-content/20 hover:border-none">
+      <a className="btn btn-sm btn-ghost btn-accent btn-block border-base-content/20 hover:border-none">
         Download Resume
         <ArrowDown size={16} />
       </a>

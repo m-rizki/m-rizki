@@ -1,5 +1,6 @@
 import { projects } from "~/utils/projects";
 import CardProject from "../projects/card-project";
+import { Link } from "react-router";
 
 export default function HomeProjects() {
   const projectsToShow = projects.slice(0, 3);
@@ -29,9 +30,12 @@ export default function HomeProjects() {
         )}
       </div>
       <div className="text-center">
-        <button className="btn btn-sm btn-ghost btn-primary border-base-content/20 hover:border-none">
+        <Link
+          to={"/projects"}
+          className="btn btn-sm btn-ghost btn-accent border-base-content/20 hover:border-none"
+        >
           More
-        </button>
+        </Link>
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ export const resumeList: Resume[] = [
     title: "Software Engineer",
     logo: (
       <img
-        src="/public/company/archsoft.png"
+        src="/company/archsoft.png"
         className="w-9 h-9 rounded-full"
         alt="logo archsoft"
       />
