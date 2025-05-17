@@ -5,7 +5,7 @@ export default function MobileNavigation() {
   return (
     <div className="md:hidden">
       <details className="dropdown dropdown-end">
-        <summary className="btn shadow-sm font-bold bg-base-300 rounded-full border-base-content/10">
+        <summary className="btn bg-base-300 border-base-content/10 rounded-full font-bold shadow-sm">
           <Menu />
         </summary>
         <nav>

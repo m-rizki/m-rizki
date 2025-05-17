@@ -6,7 +6,7 @@ export default function SiteLayout() {
   return (
     <>
       <Navbar />
-      <div className="px-8 sm:px-16 lg:px-32 xl:px-64 min-h-screen">
+      <div className="min-h-screen px-8 sm:px-16 lg:px-32 xl:px-64">
         <main>
           <Outlet />
         </main>

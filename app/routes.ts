@@ -6,7 +6,6 @@ import {
 } from "@react-router/dev/routes";
 
 export default [
-  // TODO: ADD ROUTING TO ABOUT, ARTICLE, PROJECTS
   layout("./components/layouts/site-layout.tsx", [
     index("routes/home.tsx"),
     route("/about", "./routes/about.tsx"),

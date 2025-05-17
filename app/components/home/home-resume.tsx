@@ -3,7 +3,7 @@ import { resumeList } from "~/utils/resume";
 
 export default function HomeResume() {
   return (
-    <div className="rounded-2xl border border-base-content/20 p-6">
+    <div className="border-base-content/20 rounded-2xl border p-6">
       <h2 className="flex font-semibold">
         <BriefcaseBusiness />
         <span className="ml-3">Resume</span>
@@ -18,7 +18,7 @@ export default function HomeResume() {
                 <p className="text-base-content/50 text-sm">{resume.title}</p>
               </div>
             </div>
-            <div className="text-sm text-base-content/50 whitespace-nowrap">
+            <div className="text-base-content/50 text-sm whitespace-nowrap">
               {resume.start && <span>{resume.start} - </span>}
               {resume.end}
             </div>

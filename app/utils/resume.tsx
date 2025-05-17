@@ -15,7 +15,7 @@ export const resumeList: Resume[] = [
     logo: (
       <img
         src="/company/archsoft.png"
-        className="w-9 h-9 rounded-full"
+        className="h-9 w-9 rounded-full"
         alt="logo archsoft"
       />
     ),
@@ -29,7 +29,7 @@ export const resumeList: Resume[] = [
     logo: (
       <img
         src="/company/logo-unj.png"
-        className="w-9 h-9 rounded-full"
+        className="h-9 w-9 rounded-full"
         alt="logo unj"
       />
     ),
@@ -43,7 +43,7 @@ export const resumeList: Resume[] = [
     logo: (
       <img
         src="/company/logo-unj.png"
-        className="w-9 h-9 rounded-full"
+        className="h-9 w-9 rounded-full"
         alt="logo unj"
       />
     ),

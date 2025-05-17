@@ -18,8 +18,8 @@ export default function Home() {
     <>
       <HomeHero />
       <HomeProjects />
-      <div className="mt-24 md:mt-28 mb-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8">
+      <div className="mt-24 mb-10 md:mt-28">
+        <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-2">
           <HomeArticle />
           <HomeResume />
         </div>

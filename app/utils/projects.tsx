@@ -41,7 +41,7 @@ export const projects: Project[] = [
     logo: (
       <img
         src="/profile-adj.jpg"
-        className="w-9 h-9 rounded-full border border-base-content/5"
+        className="border-base-content/5 h-9 w-9 rounded-full border"
         alt="m-rizki"
       />
     ),

@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 export default function Footer() {
   return (
-    <footer className="footer sm:footer-horizontal border-t border-base-content/10 text-base-content items-center mt-24 py-12 px-8 sm:px-16 lg:px-32 xl:px-64">
+    <footer className="footer sm:footer-horizontal border-base-content/10 text-base-content mt-24 items-center border-t px-8 py-12 sm:px-16 lg:px-32 xl:px-64">
       <aside className="grid-flow-col items-center">
         <nav className="grid grid-flow-col gap-4">
           <Link to={"/"} className="link link-hover">

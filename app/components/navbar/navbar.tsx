@@ -10,12 +10,12 @@ export default function Navbar() {
 
   return (
     <div
-      className={`fixed top-6 left-0 right-0 z-50 bg-transparent transition-all duration-300 ${
-        visible ? "opacity-100" : "opacity-0 pointer-events-none"
+      className={`fixed top-6 right-0 left-0 z-50 bg-transparent transition-all duration-300 ${
+        visible ? "opacity-100" : "pointer-events-none opacity-0"
       }`}
     >
       <div className="px-8 sm:px-16 lg:px-32 xl:px-64">
-        <div className="flex justify-between items-center bg-transparent shadow-none rounded-full">
+        <div className="flex items-center justify-between rounded-full bg-transparent shadow-none">
           <div>
             {/* <Link
               to={"/"}
@@ -27,7 +27,7 @@ export default function Navbar() {
 
           <DesktopNavigation />
 
-          <div className="flex justify-end items-center gap-4">
+          <div className="flex items-center justify-end gap-4">
             <MobileNavigation />
             <ThemeSwitcher />
           </div>
