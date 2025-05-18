@@ -2,12 +2,16 @@
 
 interface FaLinkedinrops {
   widthClass?: string;
+  additionalClass?: string;
 }
 
-export default function FaLinkedin({ widthClass }: FaLinkedinrops) {
+export default function FaLinkedin({
+  widthClass,
+  additionalClass = "",
+}: FaLinkedinrops) {
   return (
     <svg
-      className={`fill-base-content ${widthClass}`}
+      className={`fill-base-content/70 ${widthClass} ${additionalClass}`}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 448 512"
     >

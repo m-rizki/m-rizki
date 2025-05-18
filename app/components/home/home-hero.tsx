@@ -3,7 +3,7 @@ import FaLinkedin from "../icons/fa-linkedin";
 
 export default function HomeHero() {
   return (
-    <div className="hero bg-base-100 min-h-screen">
+    <div className="hero min-h-screen">
       <div className="hero-content justify-self-start p-0">
         <div className="max-w-2xl">
           <div className="avatar pb-2">

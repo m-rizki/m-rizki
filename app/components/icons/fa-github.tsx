@@ -2,12 +2,16 @@
 
 interface FaGithubProps {
   widthClass?: string;
+  additionalClass?: string;
 }
 
-export default function FaGithub({ widthClass }: FaGithubProps) {
+export default function FaGithub({
+  widthClass,
+  additionalClass = "",
+}: FaGithubProps) {
   return (
     <svg
-      className={`fill-base-content ${widthClass}`}
+      className={`fill-base-content/70 ${widthClass} ${additionalClass}`}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 496 512"
     >
