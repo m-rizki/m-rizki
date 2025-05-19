@@ -1,9 +1,10 @@
+import { ArrowDown } from "lucide-react";
 import FaGithub from "../icons/fa-github";
 import FaLinkedin from "../icons/fa-linkedin";
 
 export default function HomeHero() {
   return (
-    <div className="hero min-h-screen">
+    <div className="hero relative min-h-screen">
       <div className="hero-content justify-self-start p-0">
         <div className="max-w-2xl">
           <div className="avatar pb-2">
@@ -36,6 +37,15 @@ export default function HomeHero() {
             </a>
           </div>
         </div>
+      </div>
+
+      <div className="absolute right-0 bottom-20 left-0 flex justify-center">
+        <a
+          href="#home-project"
+          className="btn btn-outline btn-accent btn-circle animate-bounce"
+        >
+          <ArrowDown />
+        </a>
       </div>
     </div>
   );

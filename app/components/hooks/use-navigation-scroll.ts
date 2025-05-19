@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export function useNavigationScroll() {
+export default function useNavigationScroll() {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
 

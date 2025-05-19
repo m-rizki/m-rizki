@@ -19,7 +19,7 @@ export const resumeList: Resume[] = [
         alt="logo archsoft"
       />
     ),
-    start: "2022",
+    start: "November 2022",
     end: "Present",
   },
   {
@@ -34,7 +34,7 @@ export const resumeList: Resume[] = [
       />
     ),
     start: "",
-    end: "2022",
+    end: "August 2022",
   },
   {
     id: "1",

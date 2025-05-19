@@ -27,7 +27,7 @@ export default function AboutPage() {
           <h1 className="text-base-content text-4xl font-bold">
             Hi, I'm Muhamad Rizki.
           </h1>
-          <div className="text-base-content/60 mt-6 space-y-7">
+          <div className="text-base-content/70 mt-6 space-y-7">
             <p>
               Ever opened an old code file and felt completely lost? That's
               exactly what I experienced in my first couple of years as a

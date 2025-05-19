@@ -7,7 +7,7 @@ export default function HomeProjects() {
   const hasThirdProject = projectsToShow.length >= 3;
 
   return (
-    <div className="py-2">
+    <section id="home-project" className="py-16">
       <p className="text-3xl font-bold">Projects</p>
       <div className="my-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {/* Render first two projects normally */}
@@ -30,13 +30,10 @@ export default function HomeProjects() {
         )}
       </div>
       <div className="text-center">
-        <Link
-          to={"/projects"}
-          className="btn btn-sm btn-ghost btn-accent border-base-content/20 hover:border-none"
-        >
+        <Link to={"/projects"} className="btn btn-sm btn-outline btn-accent">
           More
         </Link>
       </div>
-    </div>
+    </section>
   );
 }

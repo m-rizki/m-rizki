@@ -13,12 +13,16 @@ export interface Project {
     href: string;
   };
   logo: any;
+  techStack: {
+    name: string;
+    color: string;
+  }[];
 }
 
 export const projects: Project[] = [
   {
     id: "1",
-    name: "rGKeep",
+    name: "r-g-keep",
     description: "Todo List app inspired by Google Keep",
     link: {
       title: "r-g-keep site",
@@ -29,6 +33,15 @@ export const projects: Project[] = [
       title: "r-g-keep",
       href: "https://github.com/m-rizki/r-g-keep",
     },
+    techStack: [
+      { name: "react", color: "text-cyan-400" },
+      { name: "react-router", color: "text-rose-500" },
+      { name: "tailwind-css", color: "text-sky-400" },
+      { name: "daisy-ui", color: "text-yellow-400" },
+      { name: "dnd-kit", color: "text-base-content" },
+      { name: "jotai", color: "text-base-content" },
+      { name: "react-hook-form", color: "text-pink-400" },
+    ],
   },
   {
     id: "2",
@@ -49,29 +62,41 @@ export const projects: Project[] = [
       title: "m-rizki",
       href: "https://github.com/m-rizki/m-rizki",
     },
+    techStack: [
+      { name: "react", color: "text-cyan-400" },
+      { name: "react-router", color: "text-rose-500" },
+      { name: "tailwind-css", color: "text-sky-400" },
+      { name: "daisy-ui", color: "text-yellow-400" },
+    ],
   },
   // {
   //   id: "3",
   //   name: "dashboard",
   //   description: "dashboard with auth",
-  //   link: "",
+  //   link: {
+  //     title: "dashboard site",
+  //     href: "",
+  //   },
   //   logo: <p>dashboard</p>,
-  //   repoLink: "",
+  //   repoLink: {
+  //     title: "",
+  //     href: "",
+  //   },
+  //   techStack: [{ name: "react", color: "primary" }],
   // },
   // {
   //   id: "4",
-  //   name: "e-commerce",
-  //   description: "dashboard with auth",
-  //   link: "",
-  //   logo: <p>dashboard</p>,
-  //   repoLink: "",
-  // },
-  // {
-  //   id: "5",
   //   name: "acm-wound-v2",
   //   description: `rewrite my thesis source code "Detection of Wound Circumference using Active Contour" by creating CLI app "acm-wound-v2"`,
-  //   link: "",
+  //   link: {
+  //     title: "acm-wound app",
+  //     href: "",
+  //   },
   //   logo: <p>dashboard</p>,
-  //   repoLink: "",
+  //   repoLink: {
+  //     title: "",
+  //     href: "",
+  //   },
+  //   techStack: [{ name: "react", color: "primary" }],
   // },
 ];
