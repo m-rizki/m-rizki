@@ -1,5 +1,17 @@
 import Projects from "~/components/projects/projects";
 import TechStack from "~/components/projects/tech-stacks";
+import type { Route } from "./+types/projects";
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "Muhamad Rizki - Projects" },
+    {
+      name: "description",
+      content:
+        "A showcase of projects and technologies I use as a software engineer, reflecting my approach to clean, simple, and robust code.",
+    },
+  ];
+}
 
 export default function ProjectsPage() {
   return (

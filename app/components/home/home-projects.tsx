@@ -31,7 +31,7 @@ export default function HomeProjects() {
       </div>
       <div className="text-center">
         <Link to={"/projects"} className="btn btn-sm btn-outline btn-accent">
-          More
+          More projects
         </Link>
       </div>
     </section>

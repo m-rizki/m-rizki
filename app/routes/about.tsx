@@ -4,7 +4,7 @@ import FaLinkedin from "~/components/icons/fa-linkedin";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "About" },
+    { title: "Muhamad Rizki - About" },
     {
       name: "description",
       content: "Hi, I'm Muhamad Rizki.",

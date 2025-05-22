@@ -1,4 +1,4 @@
-import { NotebookPen } from "lucide-react";
+import { KeyRound, NotebookPen } from "lucide-react";
 
 export interface Project {
   id: string;
@@ -30,7 +30,7 @@ export const projects: Project[] = [
     },
     logo: <NotebookPen size={24} />,
     repoLink: {
-      title: "r-g-keep",
+      title: "r-g-keep repository",
       href: "https://github.com/m-rizki/r-g-keep",
     },
     techStack: [
@@ -59,7 +59,7 @@ export const projects: Project[] = [
       />
     ),
     repoLink: {
-      title: "m-rizki",
+      title: "m-rizki repository",
       href: "https://github.com/m-rizki/m-rizki",
     },
     techStack: [
@@ -69,21 +69,27 @@ export const projects: Project[] = [
       { name: "daisy-ui", color: "text-yellow-400" },
     ],
   },
-  // {
-  //   id: "3",
-  //   name: "dashboard",
-  //   description: "dashboard with auth",
-  //   link: {
-  //     title: "dashboard site",
-  //     href: "",
-  //   },
-  //   logo: <p>dashboard</p>,
-  //   repoLink: {
-  //     title: "",
-  //     href: "",
-  //   },
-  //   techStack: [{ name: "react", color: "primary" }],
-  // },
+  {
+    id: "3",
+    name: "r-auth",
+    description:
+      "A full-stack authentication system demonstrating flexible, JWT authentication using both HTTP-only cookies and Authorization headers",
+    link: {
+      title: "r-auth site",
+      href: "",
+    },
+    logo: <KeyRound size={24} />,
+    repoLink: {
+      title: "r-auth repository",
+      href: "https://github.com/m-rizki/r-auth",
+    },
+    techStack: [
+      { name: "express-js", color: "text-emerald-400" },
+      { name: "react", color: "primary" },
+      { name: "react-router", color: "text-rose-500" },
+      { name: "axios", color: "text-base-content" },
+    ],
+  },
   // {
   //   id: "4",
   //   name: "acm-wound-v2",
