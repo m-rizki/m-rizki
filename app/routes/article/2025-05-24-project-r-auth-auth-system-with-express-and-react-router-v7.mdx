@@ -1,4 +1,15 @@
-# Project : r-auth - An Authentication System with Express and React Router v7
+---
+title: "Project : r-auth - An Authentication System with Express and React Router v7"
+date: "2025-05-24"
+---
+
+import { MdxDate } from "../layouts/article-layout.tsx";
+
+export const meta = [{ title: frontmatter.title }];
+
+<MdxDate date={frontmatter.date} />
+
+# {frontmatter.title}
 
 Authentication is a cornerstone of every serious web application. This project shows how you can build a robust, secure, and flexible authentication system using React, TypeScript, and Express.js with just a simple config change, you can switch between [HTTP-only cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies#security), [Authorization headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Authorization), or both.
 
@@ -186,7 +197,7 @@ export default function ProtectedPage() {
 
 ## Getting Started
 
-1. Clone the repo and install dependencies
+1. [Clone the repo](https://github.com/m-rizki/r-auth) and install dependencies
 2. Start the backend and frontend (see README)
 3. Try logging in with user1/password1 or user2/password2
 4. Change the API import to try different auth modes
