@@ -26,7 +26,7 @@ export const projects: Project[] = [
     description: "Todo List app inspired by Google Keep",
     link: {
       title: "r-g-keep site",
-      href: "",
+      href: "https://r-g-keep.vercel.app/",
     },
     logo: <NotebookPen size={24} />,
     repoLink: {
