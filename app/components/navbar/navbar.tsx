@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import ThemeSwitcher from "../controllers/theme-switcher";
 import MobileNavigation from "./mobile-navigation";
 import DesktopNavigation from "./desktop-navigation";
-import useNavigationScroll from "../hooks/use-navigation-scroll";
+import useNavigationScroll from "../../hooks/use-navigation-scroll";
 
 export default function Navbar() {
   const { visible } = useNavigationScroll();
