@@ -10,17 +10,27 @@ export default function HomeResume() {
       </h2>
       <div className="my-6 space-y-6">
         {resumeList.map((resume) => (
-          <div key={resume.id} className="flex justify-between">
-            <div className="flex items-center gap-x-4">
-              <div>{resume.logo}</div>
-              <div>
-                <p>{resume.company}</p>
-                <p className="text-base-content/50 text-sm">{resume.title}</p>
+          <div key={resume.id} className="flex items-start justify-between">
+            <div className="flex items-start gap-x-4">
+              <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center">
+                {resume.logo && (
+                  <div className="max-h-full max-w-full object-contain">
+                    {resume.logo}
+                  </div>
+                )}
               </div>
-            </div>
-            <div className="text-base-content/50 text-sm whitespace-nowrap">
-              {resume.start && <span>{resume.start} - </span>}
-              {resume.end}
+              <div>
+                <p className="text-sm leading-tight font-semibold">
+                  {resume.company}
+                </p>
+                <p className="text-base-content/70 mt-0.5 text-sm leading-tight">
+                  {resume.title}
+                </p>
+                <p className="text-base-content/50 mt-1 text-xs whitespace-nowrap">
+                  {resume.start && <span>{resume.start} - </span>}
+                  {resume.end}
+                </p>
+              </div>
             </div>
           </div>
         ))}
