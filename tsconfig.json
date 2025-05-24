@@ -1,6 +1,7 @@
 {
   "include": [
     "**/*",
+    "**/*.mdx",
     "**/.server/**/*",
     "**/.client/**/*",
     ".react-router/types/**/*"

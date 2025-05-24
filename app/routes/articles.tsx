@@ -1,6 +1,6 @@
 import { articles } from "~/utils/articles";
-import type { Route } from "./+types/articles";
 import ArticleItem from "~/components/article/article-item";
+import type { Route } from "./+types/articles";
 
 export function meta({}: Route.MetaArgs) {
   return [
