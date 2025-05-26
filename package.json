@@ -1,12 +1,15 @@
 {
-  "name": "portfolio",
+  "name": "m-rizki",
   "private": true,
   "type": "module",
+  "homepage": "https://m-rizki.github.io/",
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
-    "typecheck": "react-router typegen && tsc"
+    "typecheck": "react-router typegen && tsc",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@mdx-js/react": "^3.1.0",
@@ -32,6 +35,7 @@
     "@types/node": "^22",
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
+    "gh-pages": "^6.3.0",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^4.1.7",
