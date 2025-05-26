@@ -2,14 +2,11 @@
   "name": "m-rizki",
   "private": true,
   "type": "module",
-  "homepage": "https://m-rizki.github.io/",
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
-    "typecheck": "react-router typegen && tsc",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
     "@mdx-js/react": "^3.1.0",

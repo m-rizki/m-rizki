@@ -49,7 +49,7 @@ export const projects: Project[] = [
     description: "Personal website portfolio & blog",
     link: {
       title: "m-rizki site",
-      href: "https://m-rizki.github.io/",
+      href: "https://m-rizki.vercel.app",
     },
     logo: (
       <img
