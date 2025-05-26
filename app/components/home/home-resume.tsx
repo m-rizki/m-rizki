@@ -36,7 +36,11 @@ export default function HomeResume() {
         ))}
       </div>
 
-      <a className="btn btn-sm btn-ghost btn-accent btn-block border-base-content/20 hover:border-none">
+      <a
+        target="_blank"
+        href="/documents/resume/cv_m_rizki_26_may_2025.pdf"
+        className="btn btn-sm btn-ghost btn-accent btn-block border-base-content/20 hover:border-none"
+      >
         Download Resume
         <ArrowDown size={16} />
       </a>
