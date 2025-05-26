@@ -22,16 +22,16 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "1",
-    name: "r-g-keep",
-    description: "Todo List app inspired by Google Keep",
+    name: "r-keep",
+    description: "Advanced Note Management App inspired by Google Keep",
     link: {
-      title: "r-g-keep site",
-      href: "https://r-g-keep.vercel.app/",
+      title: "r-keep site",
+      href: "https://r-keep.vercel.app/",
     },
     logo: <NotebookPen size={24} />,
     repoLink: {
       title: "r-g-keep repository",
-      href: "https://github.com/m-rizki/r-g-keep",
+      href: "https://github.com/m-rizki/r-keep",
     },
     techStack: [
       { name: "react", color: "text-cyan-400" },
@@ -49,7 +49,7 @@ export const projects: Project[] = [
     description: "Personal website portfolio & blog",
     link: {
       title: "m-rizki site",
-      href: "",
+      href: "https://m-rizki.github.io/",
     },
     logo: (
       <img
@@ -67,6 +67,7 @@ export const projects: Project[] = [
       { name: "react-router", color: "text-rose-500" },
       { name: "tailwind-css", color: "text-sky-400" },
       { name: "daisy-ui", color: "text-yellow-400" },
+      { name: "mdx", color: "text-base-content" },
     ],
   },
   {
