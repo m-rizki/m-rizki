@@ -59,7 +59,7 @@ export default function TechStack() {
           <a
             href={stack.href}
             target="_blank"
-            className="btn btn-xl btn-circle border-base-content/20 dark:bg-base-content/5 h-20 w-20 shadow-lg"
+            className="btn btn-xl btn-circle border-base-content/20 dark:bg-base-content/5 h-20 w-20 shadow-sm"
           >
             <img src={stack.img} alt={stack.name} className="w-8" />
           </a>

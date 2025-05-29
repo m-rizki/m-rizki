@@ -5,10 +5,10 @@ export default function MobileNavigation() {
   return (
     <div className="md:hidden">
       <details className="dropdown dropdown-end">
-        <summary className="btn bg-base-300 border-base-content/10 shadow-neutral-content/5 rounded-full font-bold shadow-lg">
+        <summary className="btn bg-base-300 border-base-content/10 shadow-base-content/5 rounded-full font-bold shadow-sm">
           <Menu />
         </summary>
-        <ul className="dropdown-content menu rounded-box shadow-neutral-content/5 bg-base-300 mt-2 w-40 shadow-lg">
+        <ul className="dropdown-content menu rounded-box shadow-base-content/5 bg-base-300 mt-2 w-40 shadow-sm">
           <li>
             <Link to={"/"}>
               <Home size={20} />
