@@ -29,46 +29,45 @@ export default function AboutPage() {
           </h1>
           <div className="text-base-content/70 mt-6 space-y-7">
             <p>
-              Ever opened an old code file and felt completely lost? That's
-              exactly what I experienced in my first couple of years as a
-              developer. Those experiences are what drive me to always strive
-              for clean, simple, robust, and well-documented code. Not because
-              of some obsession, but because I've dealt with enough confusing
-              spaghetti code.
+              Have you ever reopened an old codebase only to wonder what you
+              were thinking back then? I certainly have. Those early challenges
+              as a developer shaped my commitment to writing clean, simple, and
+              well-documented code.
             </p>
             <p>
-              I graduated with a computer science degree from Universitas Negeri
-              Jakarta and currently work as a software engineer. Although my
-              current focus revolves around React in the front-end space, my
-              interests actually span across software engineering as a whole.
-              What started as a simple curiosity has evolved into the career I'm
-              dedicated to today.
+              I hold a degree in Computer Science from Universitas Negeri
+              Jakarta and currently work as a software engineer. While my
+              day-to-day focus lies in front-end development with React, my
+              curiosity spans the entire field of software engineering.
             </p>
             <p>
-              On this website, you'll find various projects I've worked on,
-              along with articles based on my experiences as a developer. While
-              the content is currently centered around front-end development,
-              the scope will continue to expand.
+              This website is where I share personal projects, write about
+              development insights, and document the things I've learned along
+              the way. While most of the content currently leans toward
+              front-end topics, the scope will naturally grow as I explore other
+              areas of interest.
             </p>
             <p>
-              In my view, good code isn't just about functionality—it's about
-              being robust and easily understood by other developers. After
-              facing difficult-to-maintain code, security vulnerabilities, and
-              minimal documentation multiple times, I've come to deeply
-              appreciate the KISS (Keep It Simple, Stupid) principle and clean
-              code architecture in every project.
+              I believe good code is more than just code that works, it should
+              be maintainable, resilient, and clear to those who come after you.
+              After encountering tangled codebases, hard-to-trace bugs, and
+              projects lacking proper documentation, I've grown to appreciate
+              the value of simplicity, structure, and clarity. Principles like
+              "Keep It Simple, Stupid" (KISS) and clean architecture aren't just
+              ideals to me, they're practical tools for building better
+              software.
             </p>
             <p>
-              In my free time, I usually keep up with the latest technology
-              trends or learn new concepts that can be applied in software
-              development. I also enjoy sharing knowledge and experiences about
-              software development through articles on this website.
+              Outside of work, I enjoy keeping up with emerging technologies and
+              learning new approaches to solve real-world problems. I'm also
+              passionate about sharing knowledge, and many of the articles here
+              are based on real experiences, challenges, and growth moments
+              throughout my journey.
             </p>
             <p>
-              If you're interested in discussing software development, best
-              practices, or would like to collaborate on a project, don't
-              hesitate to reach out. Let's create better, cleaner, and more
-              resilient software together!
+              More than just a personal archive, I hope this website can be a
+              useful resource for fellow developers, whether you're just
+              starting out or simply looking for a fresh perspective.
             </p>
           </div>
         </div>

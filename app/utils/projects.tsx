@@ -45,6 +45,49 @@ export const projects: Project[] = [
   },
   {
     id: "2",
+    name: "r-auth",
+    description:
+      "A full-stack authentication system demonstrating flexible, JWT authentication using both HTTP-only cookies and Authorization headers",
+    link: {
+      title: "r-auth site",
+      href: "",
+    },
+    logo: <KeyRound size={24} />,
+    repoLink: {
+      title: "r-auth repository",
+      href: "https://github.com/m-rizki/r-auth",
+    },
+    techStack: [
+      { name: "express-js", color: "text-emerald-400" },
+      { name: "react", color: "text-cyan-400" },
+      { name: "react-router", color: "text-rose-500" },
+      { name: "axios", color: "text-base-content" },
+    ],
+  },
+  {
+    id: "3",
+    name: "acm-wound-v2",
+    description: `rewrite my thesis source code "Detection of Wound Circumference using Active Contour" by creating "v2" CLI app`,
+    link: {
+      title: "acm-wound app",
+      href: "",
+    },
+    logo: <p className="text-xs">ACM</p>,
+    repoLink: {
+      title: "acm-wound app",
+      href: "https://github.com/m-rizki/skripsi/blob/main/v2/readme.md",
+    },
+    techStack: [
+      { name: "python", color: "text-yellow-200" },
+      { name: "jupyter-notebook", color: "text-base-content" },
+      { name: "matplotlib", color: "text-blue-400" },
+      { name: "pandas", color: "text-base-content" },
+      { name: "skimage", color: "text-orange-500" },
+      { name: "numpy", color: "text-cyan-400" },
+    ],
+  },
+  {
+    id: "4",
     name: "m-rizki",
     description: "Personal website portfolio & blog",
     link: {
@@ -70,40 +113,4 @@ export const projects: Project[] = [
       { name: "mdx", color: "text-base-content" },
     ],
   },
-  {
-    id: "3",
-    name: "r-auth",
-    description:
-      "A full-stack authentication system demonstrating flexible, JWT authentication using both HTTP-only cookies and Authorization headers",
-    link: {
-      title: "r-auth site",
-      href: "",
-    },
-    logo: <KeyRound size={24} />,
-    repoLink: {
-      title: "r-auth repository",
-      href: "https://github.com/m-rizki/r-auth",
-    },
-    techStack: [
-      { name: "express-js", color: "text-emerald-400" },
-      { name: "react", color: "primary" },
-      { name: "react-router", color: "text-rose-500" },
-      { name: "axios", color: "text-base-content" },
-    ],
-  },
-  // {
-  //   id: "4",
-  //   name: "acm-wound-v2",
-  //   description: `rewrite my thesis source code "Detection of Wound Circumference using Active Contour" by creating CLI app "acm-wound-v2"`,
-  //   link: {
-  //     title: "acm-wound app",
-  //     href: "",
-  //   },
-  //   logo: <p>dashboard</p>,
-  //   repoLink: {
-  //     title: "",
-  //     href: "",
-  //   },
-  //   techStack: [{ name: "react", color: "primary" }],
-  // },
 ];
