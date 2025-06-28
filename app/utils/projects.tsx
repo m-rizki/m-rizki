@@ -67,7 +67,7 @@ export const projects: Project[] = [
   {
     id: "3",
     name: "acm-wound-v2",
-    description: `rewrite my thesis source code "Detection of Wound Circumference using Active Contour" by creating "v2" CLI app`,
+    description: `Rewrite my thesis source code "Detection of Wound Circumference using Active Contour" by creating "v2" CLI app`,
     link: {
       title: "acm-wound app",
       href: "",
@@ -79,11 +79,11 @@ export const projects: Project[] = [
     },
     techStack: [
       { name: "python", color: "text-yellow-200" },
-      { name: "jupyter-notebook", color: "text-base-content" },
+      { name: "numpy", color: "text-cyan-400" },
       { name: "matplotlib", color: "text-blue-400" },
       { name: "pandas", color: "text-base-content" },
       { name: "skimage", color: "text-orange-500" },
-      { name: "numpy", color: "text-cyan-400" },
+      { name: "jupyter-notebook", color: "text-base-content" },
     ],
   },
   {
