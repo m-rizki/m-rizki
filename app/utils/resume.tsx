@@ -20,7 +20,7 @@ export const resumeList: Resume[] = [
       />
     ),
     start: "Dec 2022",
-    end: "Present",
+    end: "July 2025",
   },
   {
     id: "2",
