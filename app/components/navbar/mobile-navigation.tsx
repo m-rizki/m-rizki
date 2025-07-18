@@ -4,11 +4,17 @@ import { Link } from "react-router";
 export default function MobileNavigation() {
   return (
     <div className="md:hidden">
-      <details className="dropdown dropdown-end">
-        <summary className="btn bg-base-300 border-base-content/10 shadow-base-content/5 rounded-full font-bold shadow-sm">
+      <div className="dropdown dropdown-end">
+        <div
+          tabIndex={0}
+          className="btn bg-base-300 border-base-content/10 shadow-base-content/5 rounded-full font-bold shadow-sm"
+        >
           <Menu />
-        </summary>
-        <ul className="dropdown-content menu rounded-box shadow-base-content/5 bg-base-300 mt-2 w-40 shadow-sm">
+        </div>
+        <ul
+          tabIndex={0}
+          className="dropdown-content menu rounded-box shadow-base-content/5 bg-base-300 mt-2 w-40 shadow-sm"
+        >
           <li>
             <Link to={"/"}>
               <Home size={20} />
@@ -31,7 +37,7 @@ export default function MobileNavigation() {
             </Link>
           </li>
         </ul>
-      </details>
+      </div>
     </div>
   );
 }
