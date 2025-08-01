@@ -11,6 +11,10 @@ const articleItemRoutes = await flatRoutes({
 });
 
 export default [
+  // // API
+  route("api/locales/:lng/:ns", "./routes/apis/locales.ts"),
+
+  // PAGES
   layout("./routes/layouts/site-layout.tsx", [
     index("routes/home.tsx"),
     route("/about", "./routes/about.tsx"),
@@ -20,4 +24,5 @@ export default [
       ...articleItemRoutes,
     ]),
   ]),
+
 ] satisfies RouteConfig;

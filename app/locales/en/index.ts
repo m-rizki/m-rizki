@@ -1,4 +1,4 @@
 import type { Resource } from "i18next";
 import home from "./home";
 
-export default { home } satisfies Resource;
+export default { translation: { home } } satisfies Resource;
