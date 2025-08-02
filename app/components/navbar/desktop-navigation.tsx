@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router";
 
 function NavItem({ to, children }: { to: string; children: React.ReactNode }) {
@@ -30,13 +31,15 @@ function NavItem({ to, children }: { to: string; children: React.ReactNode }) {
 }
 
 export default function DesktopNavigation() {
+  let { t } = useTranslation();
+
   return (
     <nav className="hidden md:block">
       <ul className="bg-base-300/90 ring-base-content/10 shadow-base-content/5 flex gap-4 rounded-full px-3 text-sm font-medium shadow-sm ring-1 backdrop-blur">
-        <NavItem to="/">Home</NavItem>
-        <NavItem to="/about">About</NavItem>
-        <NavItem to="/projects">Projects</NavItem>
-        <NavItem to="/articles">Articles</NavItem>
+        <NavItem to="/">{t("navigation.home")}</NavItem>
+        <NavItem to="/about">{t("navigation.about")}</NavItem>
+        <NavItem to="/projects">{t("navigation.projects")}</NavItem>
+        <NavItem to="/articles">{t("navigation.articles")}</NavItem>
       </ul>
     </nav>
   );
