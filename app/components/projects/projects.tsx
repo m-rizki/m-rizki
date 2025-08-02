@@ -1,4 +1,5 @@
-import { projects } from "~/utils/projects";
+import { projects } from "~/data/projects";
+
 import CardProject from "./card-project";
 
 export default function Projects() {

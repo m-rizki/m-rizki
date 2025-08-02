@@ -1,7 +1,32 @@
 import { ArrowDown, BriefcaseBusiness } from "lucide-react";
-import { resumeList } from "~/utils/resume";
+import { useTranslation } from "react-i18next";
+import { resumeList } from "~/data/resume";
+
+function getDateRangeText(
+  start: { en: string; id: string },
+  end: { en: string; id: string },
+  lang: string,
+): string {
+  const s = lang === "id" ? start.id : start.en;
+  const e = lang === "id" ? end.id : end.en;
+
+  if (!s && !e) return "";
+  if (!s) return e;
+  if (!e) return s;
+
+  return `${s} - ${e}`;
+}
 
 export default function HomeResume() {
+  const { i18n } = useTranslation();
+  const currentLanguage = i18n.language;
+
+  const getURLCV = (lng: string) => {
+    if (lng === "id") return "/documents/resume/id_cv_m_rizki_22_july_2025.pdf";
+
+    return "/documents/resume/en_cv_m_rizki_22_july_2025.pdf";
+  };
+
   return (
     <div className="border-base-content/20 rounded-2xl border p-6">
       <h2 className="flex font-semibold">
@@ -24,11 +49,10 @@ export default function HomeResume() {
                   {resume.company}
                 </p>
                 <p className="text-base-content/70 mt-0.5 text-sm leading-tight">
-                  {resume.title}
+                  {currentLanguage === "id" ? resume.title.id : resume.title.en}
                 </p>
                 <p className="text-base-content/50 mt-1 text-xs whitespace-nowrap">
-                  {resume.start && <span>{resume.start} - </span>}
-                  {resume.end}
+                  {getDateRangeText(resume.start, resume.end, currentLanguage)}
                 </p>
               </div>
             </div>
@@ -38,7 +62,7 @@ export default function HomeResume() {
 
       <a
         target="_blank"
-        href="/documents/resume/en_cv_m_rizki_22_july_2025.pdf"
+        href={getURLCV(currentLanguage)}
         className="btn btn-sm btn-ghost btn-accent btn-block border-base-content/20 hover:border-none"
       >
         Download Resume

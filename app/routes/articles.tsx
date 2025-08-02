@@ -1,7 +1,7 @@
-import { articles } from "~/utils/articles";
 import ArticleItem from "~/components/article/article-item";
-import type { Route } from "./+types/articles";
 
+import type { Route } from "./+types/articles";
+import { articles } from "~/data/articles";
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "Muhamad Rizki - Articles" },

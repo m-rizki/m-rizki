@@ -15,7 +15,7 @@ export const MdxDate = ({ date }: { date: string }) => {
       >
         <span className="bg-base-content/40 h-4 w-0.5 rounded-full"></span>
       </span>
-      {formatDateString(date)}
+      {formatDateString(date, "en")}
     </time>
   );
 };

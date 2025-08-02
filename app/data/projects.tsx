@@ -3,7 +3,10 @@ import { KeyRound, NotebookPen } from "lucide-react";
 export interface Project {
   id: string;
   name: string;
-  description: string;
+  description: {
+    en: string;
+    id: string;
+  };
   repoLink: {
     title: string;
     href: string;
@@ -23,7 +26,10 @@ export const projects: Project[] = [
   {
     id: "1",
     name: "r-keep",
-    description: "Advanced Note Management App inspired by Google Keep",
+    description: {
+      en: "Advanced Note Management App inspired by Google Keep",
+      id: "Aplikasi manajemen catatan yang terinspirasi dari Google Keep",
+    },
     link: {
       title: "r-keep site",
       href: "https://r-keep.vercel.app/",
@@ -46,8 +52,10 @@ export const projects: Project[] = [
   {
     id: "2",
     name: "r-auth",
-    description:
-      "A full-stack authentication system demonstrating flexible, JWT authentication using both HTTP-only cookies and Authorization headers",
+    description: {
+      en: "A full-stack authentication system demonstrating flexible, JWT authentication using both HTTP-only cookies and Authorization headers",
+      id: "Sistem otentikasi full-stack yang menunjukkan fleksibilitas penggunaan JWT, dengan dukungan otentikasi melalui HTTP-only cookies maupun Authorization headers",
+    },
     link: {
       title: "r-auth site",
       href: "",
@@ -67,7 +75,10 @@ export const projects: Project[] = [
   {
     id: "3",
     name: "acm-wound-v2",
-    description: `Rewrite my thesis source code "Detection of Wound Circumference using Active Contour" by creating "v2" CLI app`,
+    description: {
+      en: `Rewrite my thesis source code "Detection of Wound Circumference using Active Contour" by creating "v2" CLI app`,
+      id: `Menulis ulang source code tugas akhir saya berjudul "Deteksi Keliling Luka Menggunakan Active Contour" dengan membuat aplikasi CLI versi "v2".`,
+    },
     link: {
       title: "acm-wound app",
       href: "",
@@ -89,7 +100,10 @@ export const projects: Project[] = [
   {
     id: "4",
     name: "m-rizki",
-    description: "Personal website portfolio & blog",
+    description: {
+      en: "Personal website portfolio & blog",
+      id: "Website personal yang di dalamnya terdapat Portofolio dan Blog",
+    },
     link: {
       title: "m-rizki site",
       href: "https://m-rizki.vercel.app",
@@ -109,6 +123,7 @@ export const projects: Project[] = [
       { name: "react", color: "text-cyan-400" },
       { name: "react-router", color: "text-rose-500" },
       { name: "tailwind-css", color: "text-sky-400" },
+      { name: "i18next", color: "text-base-content" },
       { name: "daisy-ui", color: "text-yellow-400" },
       { name: "mdx", color: "text-base-content" },
     ],
