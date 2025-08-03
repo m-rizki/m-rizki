@@ -1,7 +1,6 @@
 import { PassThrough } from "node:stream";
 
 import type {
-  AppLoadContext,
   EntryContext,
   unstable_RouterContextProvider,
 } from "react-router";

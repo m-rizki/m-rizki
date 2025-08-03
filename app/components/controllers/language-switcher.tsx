@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useSearchParams } from "react-router";
-import { useCallback } from "react";
+import { useLocation, useNavigate } from "react-router";
 
 const getLanguageIcon = (lng: string): string => {
   switch (lng) {
@@ -15,23 +14,18 @@ const getLanguageIcon = (lng: string): string => {
 
 export default function LanguageSwitcher() {
   const { i18n } = useTranslation();
-  const [, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const location = useLocation();
   const currentLanguage = i18n.language;
 
-  const setLanguage = useCallback(
-    (lng: string) => {
-      if (lng === currentLanguage) return;
+  const changeLanguage = (lng: string) => {
+    const searchParams = new URLSearchParams(location.search);
+    searchParams.set("lng", lng);
 
-      setSearchParams(
-        (prev) => {
-          prev.set("lng", lng);
-          return prev;
-        },
-        { replace: true },
-      );
-    },
-    [setSearchParams, currentLanguage],
-  );
+    navigate(`${location.pathname}?${searchParams.toString()}`, {
+      replace: true,
+    });
+  };
 
   return (
     <div className="dropdown dropdown-end">
@@ -48,7 +42,7 @@ export default function LanguageSwitcher() {
       >
         <li>
           <button
-            onClick={() => setLanguage("en")}
+            onClick={() => changeLanguage("en")}
             className="flex items-center gap-2"
             disabled={currentLanguage === "en"}
           >
@@ -60,7 +54,7 @@ export default function LanguageSwitcher() {
         </li>
         <li>
           <button
-            onClick={() => setLanguage("id")}
+            onClick={() => changeLanguage("id")}
             className="flex items-center gap-2"
             disabled={currentLanguage === "id"}
           >
