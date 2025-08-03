@@ -1,18 +1,32 @@
 import FaGithub from "~/components/icons/fa-github";
 import type { Route } from "./+types/about";
 import FaLinkedin from "~/components/icons/fa-linkedin";
+import { getInstance } from "~/middleware/i18next";
+import { data } from "react-router";
+import { Trans, useTranslation } from "react-i18next";
 
-export function meta({}: Route.MetaArgs) {
+export function meta({ data }: Route.MetaArgs) {
   return [
-    { title: "Muhamad Rizki - About" },
+    { title: data?.title },
     {
       name: "description",
-      content: "Hi, I'm Muhamad Rizki.",
+      content: data?.description,
     },
   ];
 }
 
+export async function loader({ context }: Route.LoaderArgs) {
+  let i18n = getInstance(context);
+
+  return data({
+    title: i18n.t("about.title"),
+    description: i18n.t("about.description"),
+  });
+}
+
 export default function AboutPage() {
+  let { t } = useTranslation();
+
   return (
     <div className="mt-36">
       <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
@@ -25,49 +39,44 @@ export default function AboutPage() {
         </div>
         <div className="lg:order-first lg:row-span-2">
           <h1 className="text-base-content text-4xl font-bold">
-            Hi, I'm Muhamad Rizki.
+            {t("about.greetings")}
           </h1>
           <div className="text-base-content/70 mt-6 space-y-7">
             <p>
-              Have you ever reopened an old codebase only to wonder what you
-              were thinking back then? I certainly have. Those early challenges
-              as a developer shaped my commitment to writing clean, simple, and
-              well-documented code.
+              <Trans
+                i18nKey="about.content.par_1"
+                components={{ em: <em /> }}
+              />
             </p>
             <p>
-              I hold a degree in Computer Science from Universitas Negeri
-              Jakarta and currently work as a software engineer. While my
-              day-to-day focus lies in front-end development with React, my
-              curiosity spans the entire field of software engineering.
+              <Trans
+                i18nKey="about.content.par_2"
+                components={{ em: <em /> }}
+              />
             </p>
             <p>
-              This website is where I share personal projects, write about
-              development insights, and document the things I've learned along
-              the way. While most of the content currently leans toward
-              front-end topics, the scope will naturally grow as I explore other
-              areas of interest.
+              <Trans
+                i18nKey="about.content.par_3"
+                components={{ em: <em /> }}
+              />
             </p>
             <p>
-              I believe good code is more than just code that works, it should
-              be maintainable, resilient, and clear to those who come after you.
-              After encountering tangled codebases, hard-to-trace bugs, and
-              projects lacking proper documentation, I've grown to appreciate
-              the value of simplicity, structure, and clarity. Principles like
-              "Keep It Simple, Stupid" (KISS) and clean architecture aren't just
-              ideals to me, they're practical tools for building better
-              software.
+              <Trans
+                i18nKey="about.content.par_4"
+                components={{ em: <em /> }}
+              />
             </p>
             <p>
-              Outside of work, I enjoy keeping up with emerging technologies and
-              learning new approaches to solve real-world problems. I'm also
-              passionate about sharing knowledge, and many of the articles here
-              are based on real experiences, challenges, and growth moments
-              throughout my journey.
+              <Trans
+                i18nKey="about.content.par_5"
+                components={{ em: <em /> }}
+              />
             </p>
             <p>
-              More than just a personal archive, I hope this website can be a
-              useful resource for fellow developers, whether you're just
-              starting out or simply looking for a fresh perspective.
+              <Trans
+                i18nKey="about.content.par_6"
+                components={{ em: <em /> }}
+              />
             </p>
           </div>
         </div>
@@ -83,7 +92,7 @@ export default function AboutPage() {
                   widthClass="w-6"
                   additionalClass="group-hover:fill-accent"
                 />
-                <span>Follow on GitHub</span>
+                <span>{t("about.socials.github")}</span>
               </a>
             </li>
             <li className="text-base-content/70 hover:text-accent group cursor-pointer">
@@ -96,7 +105,7 @@ export default function AboutPage() {
                   widthClass="w-6"
                   additionalClass="group-hover:fill-accent"
                 />
-                <span>Connect on LinkedIn</span>
+                <span>{t("about.socials.linkedin")}</span>
               </a>
             </li>
           </ul>

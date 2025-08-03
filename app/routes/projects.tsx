@@ -1,41 +1,52 @@
 import Projects from "~/components/projects/projects";
 import TechStack from "~/components/projects/tech-stacks";
 import type { Route } from "./+types/projects";
+import { getInstance } from "~/middleware/i18next";
+import { data } from "react-router";
+import { Trans, useTranslation } from "react-i18next";
 
-export function meta({}: Route.MetaArgs) {
+export function meta({ data }: Route.MetaArgs) {
   return [
-    { title: "Muhamad Rizki - Projects" },
+    { title: data?.title },
     {
       name: "description",
-      content:
-        "A showcase of projects and technologies I use as a software engineer, reflecting my approach to clean, simple, and robust code.",
+      content: data?.description,
     },
   ];
 }
 
+export async function loader({ context }: Route.LoaderArgs) {
+  let i18n = getInstance(context);
+
+  return data({
+    title: i18n.t("projects.hero.title"),
+    description: i18n.t("projects.description"),
+  });
+}
+
 export default function ProjectsPage() {
+  let { t } = useTranslation();
+
   return (
     <div className="mt-36 space-y-12">
       <section className="max-w-2xl">
         <h1 className="text-base-content text-4xl font-bold">
-          Tech Stack & Projects
+          {t("projects.hero.title")}
         </h1>
         <p className="text-base-content/70 mt-8">
-          Throughout my journey as a software engineer, I've worked with various
-          technologies and built several projects that reflect my commitment to
-          clean, simple, and robust code. Below you'll find the technologies I
-          work with regularly and a showcase of projects I've developed, each
-          demonstrating my approach to creating software. For some projects,
-          I've included links to their GitHub repositories and live websites
-          where available.
+          <Trans i18nKey="projects.hero.content" components={{ em: <em /> }} />
         </p>
       </section>
       <section className="space-y-8">
-        <h2 className="text-base-content text-2xl font-bold">Tech Stack</h2>
+        <h2 className="text-base-content text-2xl font-bold">
+          {t("projects.techstack.title")}
+        </h2>
         <TechStack />
       </section>
       <section className="space-y-8">
-        <h2 className="text-base-content text-2xl font-bold">Projects</h2>
+        <h2 className="text-base-content text-2xl font-bold">
+          {t("projects.projects.title")}
+        </h2>
         <Projects />
       </section>
     </div>
