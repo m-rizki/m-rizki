@@ -1,10 +1,14 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
-import { articles } from "~/data/articles";
 
 import ArticleItem from "../article/article-item";
+import type { Article } from "~/routes/apis/articles";
 
-export default function HomeArticle() {
+interface HomeArticleProps {
+  articles: Article[];
+}
+
+export default function HomeArticle({ articles }: HomeArticleProps) {
   let { t } = useTranslation();
 
   return (

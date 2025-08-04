@@ -1,10 +1,11 @@
 import ArticleItem from "~/components/article/article-item";
 
 import type { Route } from "./+types/articles";
-import { articles } from "~/data/articles";
 import { getInstance } from "~/middleware/i18next";
 import { data } from "react-router";
 import { useTranslation } from "react-i18next";
+import { listAllArticles } from "./apis/articles";
+
 export function meta({ data }: Route.MetaArgs) {
   return [
     { title: data?.title },
@@ -17,15 +18,19 @@ export function meta({ data }: Route.MetaArgs) {
 
 export async function loader({ context }: Route.LoaderArgs) {
   let i18n = getInstance(context);
+  const articles = await listAllArticles({ locale: i18n.language });
 
   return data({
     title: i18n.t("articles.title"),
     description: i18n.t("articles.description"),
+    articles,
   });
 }
 
-export default function ArticlesPage() {
+export default function ArticlesPage({ loaderData }: Route.ComponentProps) {
   let { t } = useTranslation();
+  const articles = loaderData.articles;
+
   return (
     <div className="mt-36 space-y-20">
       <section className="max-w-2xl">
