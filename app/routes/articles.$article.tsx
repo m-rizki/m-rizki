@@ -1,11 +1,13 @@
-import { data } from "react-router";
-import type { Route } from "./+types/article";
-import { bundleArticle } from "./apis/articles";
-import { getInstance } from "~/middleware/i18next";
-import React from "react";
 import { getMDXComponent } from "mdx-bundler/client";
-import { formatDateString } from "~/utils/field";
+import React from "react";
 import { useTranslation } from "react-i18next";
+import { data } from "react-router";
+import { getInstance } from "~/middleware/i18next";
+import { formatDateString } from "~/utils/field";
+
+import { bundleArticle } from "./apis/articles";
+
+import type { Route } from "./+types/articles.$article";
 
 export function meta({ data }: Route.MetaArgs) {
   return [

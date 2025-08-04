@@ -15,6 +15,6 @@ export default [
     route("/about", "./routes/about.tsx"),
     route("/projects", "./routes/projects.tsx"),
     route("/articles", "./routes/articles.tsx"),
-    route("/article/:slug", "./routes/article.tsx"),
+    route("/articles/:slug", "./routes/articles.$article.tsx"),
   ]),
 ] satisfies RouteConfig;

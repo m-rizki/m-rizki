@@ -19,7 +19,7 @@ export default function ArticleItem({ article }: ArticleItemProps) {
     <article className="group relative flex flex-col items-start">
       <h2 className="text-base-content text-base font-semibold tracking-tight">
         <div className="bg-base-300 absolute -inset-x-4 -inset-y-6 z-0 scale-95 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl"></div>
-        <Link to={`/article/${article.slug}`}>
+        <Link to={`/articles/${article.slug}`}>
           <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
           <span className="relative z-10 text-lg">{article.title}</span>
         </Link>
