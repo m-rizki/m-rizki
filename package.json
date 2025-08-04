@@ -12,7 +12,6 @@
     "@react-router/fs-routes": "^7.7.1",
     "@react-router/node": "^7.7.1",
     "@react-router/serve": "^7.7.1",
-    "@vercel/react-router": "^1.2.2",
     "daisyui": "^5.0.50",
     "esbuild": "^0.25.8",
     "i18next": "^25.3.2",
