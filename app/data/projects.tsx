@@ -89,7 +89,7 @@ export const projects: Project[] = [
       href: "https://github.com/m-rizki/skripsi/blob/main/v2/readme.md",
     },
     techStack: [
-      { name: "python", color: "text-yellow-200" },
+      { name: "python", color: "text-yellow-400" },
       { name: "numpy", color: "text-cyan-400" },
       { name: "matplotlib", color: "text-blue-400" },
       { name: "pandas", color: "text-base-content" },
