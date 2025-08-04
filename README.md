@@ -5,7 +5,7 @@ Welcome to my GitHub profile repository.
 🌐 **Check out my personal website**  
 It features a curated list of projects I've built, blog posts, and more:
 
-<!-- 👉 [m-rizki.vercel.app](https://m-rizki.vercel.app) -->
+👉 [m-rizki.vercel.app](https://m-rizki.vercel.app)
 
 ---
 
