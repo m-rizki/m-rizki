@@ -17,13 +17,7 @@ export function meta({ data }: Route.MetaArgs) {
 
 export async function loader({ context }: Route.LoaderArgs) {
   let i18n = getInstance(context);
-  let featuredArticles;
-
-  if (i18n.language === "id") {
-    featuredArticles = await getFeaturedArticles(5, i18n.language);
-  } else {
-    featuredArticles = await getFeaturedArticles(5, i18n.language);
-  }
+  const featuredArticles = await getFeaturedArticles(5, i18n.language);
 
   return data({
     title: i18n.t("home.title"),

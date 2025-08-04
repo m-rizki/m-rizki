@@ -10,7 +10,7 @@ export default {
   greetings: "Hai, saya Muhamad Rizki.",
   content: {
     par_1:
-      "Pernahkah kamu membuka kembali <em>codebase</em> lama dan bertanya-tanya, 'Apa yang sebenarnya saya pikirkan saat menulis ini?' Saya sendiri pernah mengalaminya. Tantangan-tantangan awal sebagai <em>developer</em> membentuk komitmen saya untuk menulis kode yang bersih, sederhana, dan terdokumentasi dengan baik.",
+      "Pernahkah anda membuka kembali <em>codebase</em> lama dan bertanya-tanya, 'Apa yang sebenarnya saya pikirkan saat menulis ini?' Saya sendiri pernah mengalaminya. Tantangan-tantangan awal sebagai <em>developer</em> membentuk komitmen saya untuk menulis kode yang bersih, sederhana, dan terdokumentasi dengan baik.",
 
     par_2:
       "Saya adalah seorang <em>software engineer</em> berpengalaman yang berfokus pada <em>frontend development</em> dengan React. Meskipun pekerjaan saya sebagian besar berada di ranah <em>frontend</em>, rasa ingin tahu dan ketertarikan saya meluas ke berbagai aspek lain dalam dunia <em>software engineering</em>.",
@@ -24,6 +24,6 @@ export default {
       "Saya senang mengikuti perkembangan teknologi terbaru dan mengeksplorasi pendekatan yang lebih baik untuk menyelesaikan masalah dunia nyata. Silakan jelajahi bagian Artikel untuk membaca hal-hal yang saya pelajari sepanjang perjalanan ini.",
 
     par_6:
-      "Lebih dari sekadar arsip pribadi, saya berharap website ini bisa menjadi sumber yang berguna bagi sesama developer—baik kamu yang baru mulai, maupun yang sedang mencari sudut pandang baru.",
+      "Lebih dari sekadar arsip pribadi, saya berharap website ini bisa menjadi sumber yang berguna bagi sesama developer, baik anda yang baru mulai, maupun yang sedang mencari sudut pandang baru.",
   },
 } satisfies typeof import("~/locales/en/about").default;

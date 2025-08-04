@@ -7,19 +7,19 @@ description: "Sistem autentikasi *full-stack* yang mendemonstrasikanfleksibilita
 
 # {frontmatter.title}
 
-Authentication is a cornerstone of every serious web application. This project shows how you can build a robust, secure, and flexible authentication system using React, TypeScript, and Express.js with just a simple config change, you can switch between [HTTP-only cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies#security), [Authorization headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Authorization), or both.
+Autentikasi merupakan salah satu fondasi dari setiap aplikasi web. Proyek ini menunjukkan bagaimana anda bisa membangun sistem autentikasi yang kuat, aman, dan fleksibel menggunakan React, TypeScript, dan Express.js. Hanya dengan sedikit perubahan konfigurasi, anda bisa dengan mudah beralih antara [*HTTP-only cookies*](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies#security), [*Authorization headers*](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Authorization), atau menggunakan keduanya sekaligus.
 
 ---
 
-## Visual Workflow
+## Alur Kerja Visual
 
 ![Core workflow](/article-images/r-auth-workflow.png)
 
 ---
 
-## Flexible Axios Configuration: Cookies & Auth Header
+## Konfigurasi Axios yang Fleksibel: Cookies & Auth Header
 
-The core of this project’s flexibility is the custom API client configuration in `app/api/axios.ts` using [axios interceptors](https://axios-http.com/docs/interceptors), a powerful feature of the Axios library that acts as middleware to intercept and modify HTTP requests/responses globally before they are processed.
+Inti dari fleksibilitas proyek ini terletak pada konfigurasi custom API client di `app/api/axios.ts` menggunakan [*axios interceptors*](https://axios-http.com/docs/interceptors), fitur *powerful* dari library Axios yang berfungsi seperti *middleware* untuk mencegat dan memodifikasi HTTP request/response secara global sebelum diproses.
 
 ```typescript
 // app/api/axios.ts
@@ -61,7 +61,7 @@ function createApiInstance(config: ApiConfig = defaultConfig) {
 }
 ```
 
-The API client is designed for flexibility. You can use HTTP-only cookies (default), Authorization header, or both by changing the import
+API client ini dirancang agar fleksibel. anda bisa menggunakan *HTTP-only cookies* (default), *Authorization header*, atau keduanya hanya dengan mengubah bagian import-nya.
 
 ```typescript
 // app/api/axios.ts
@@ -83,7 +83,7 @@ export const apiWithBoth = createApiInstance({
 });
 ```
 
-Switch between them in your code:
+Beralih antar metode:
 
 ```typescript
 import apiWithCredentials from "~/api/axios"; // cookies (default)
@@ -91,13 +91,15 @@ import { apiWithAuthHeader } from "~/api/axios"; // header
 import { apiWithBoth } from "~/api/axios"; // both
 ```
 
-All token refresh, storage, and header logic is handled for you.
+Semua logika terkait refresh token, penyimpanan, dan header sudah ditangani secara otomatis.
 
 ---
 
-## Data Loading: clientLoader, Hydrate, and HydrateFallback
+## Data Loading: clientLoader, Hydrate, dan HydrateFallback
 
-[React Router v7](https://reactrouter.com/home) enables powerful [data loading and hydration patterns](https://reactrouter.com/start/framework/data-loading). The `clientLoader` is used to fetch data on the client, and you can force it to run during hydration and before the page renders by setting the `hydrate` property. In this situation, you should render a `HydrateFallback` component to show a fallback UI while the client loader runs. Here’s how you can protect routes and provide a smooth user experience via a protected layout route:
+[React Router v7](https://reactrouter.com/home) mendukung pola [*data loading* dan *hydration*](https://reactrouter.com/start/framework/data-loading) yang powerful. `clientLoader` digunakan untuk mengambil data di sisi client, dan anda bisa memaksa agar loader ini dijalankan saat proses *hydration* dan sebelum halaman dirender dengan mengatur properti `hydrate`. Dalam kondisi ini, anda sebaiknya merender komponen `HydrateFallback` untuk menampilkan UI fallback sementara proses `clientLoader` berjalan.
+
+Berikut cara melindungi *route* melalui *protected layout route*:
 
 ```typescript
 // app/components/layouts/protected-route.tsx
@@ -128,11 +130,11 @@ export function HydrateFallback() {
 }
 ```
 
-- **clientLoader**: Fetches data on the client (browser). Can be forced to run during hydration.
-- **hydrate**: If set to true, runs the clientLoader during hydration and before the page renders.
-- **HydrateFallback**: Shows a fallback UI while the clientLoader runs during hydration.
+- **clientLoader**: Mengambil data di sisi client (browser). Bisa dipaksa untuk dijalankan saat *hydration*.
+- **hydrate**: Jika diatur ke `true`, maka `clientLoader` akan dijalankan saat hydration dan sebelum halaman dirender.
+- **HydrateFallback**: Menampilkan *UI fallback* sementara `clientLoader` berjalan saat *hydration*.
 
-Here’s how you use the API client in your React components for protected actions:
+Berikut cara menggunakan API client di komponen React anda untuk *action* yang membutuhkan proteksi:
 
 ```typescript
 // app/routes/protected-page.tsx
@@ -185,21 +187,21 @@ export default function ProtectedPage() {
 }
 ```
 
-- **handleMe**: Fetches user info from a protected endpoint.
-- **handleLogout**: Logs out and clears tokens/cookies.
-- **handleRefreshToken**: Manually triggers a token refresh.
+- **handleMe**: Mengambil data user dari endpoint yang terproteksi.
+- **handleLogout**: Logout dan menghapus token/cookies.
+- **handleRefreshToken**: Men-trigger refresh token secara manual.
 
 ---
 
 ## Getting Started
 
-1. [Clone the repo](https://github.com/m-rizki/r-auth) and install dependencies
-2. Start the backend and frontend (see README)
-3. Try logging in with user1/password1 or user2/password2
-4. Change the API import to try different auth modes
+1. [Clone repo-nya](https://github.com/m-rizki/r-auth) dan install semua dependensinya
+2. Jalankan *backend* dan *frontend*-nya (lihat README)
+3. Coba login dengan `user1/password1` atau `user2/password2`
+4. Ubah bagian import API untuk mencoba mode autentikasi yang berbeda
 
 ---
 
-## Conclusion
+## Kesimpulan
 
-r-auth is a practical, template for building secure and flexible authentication in your own apps. Dive into the code, experiment with the configuration, and make it your own—the future of authentication is seamless, secure, and developer-friendly!
+**r-auth** adalah template praktis untuk membangun sistem autentikasi yang aman dan fleksibel di aplikasi anda. Jelajahi *source code*-nya, eksperimen dengan konfigurasinya, dan sesuaikan dengan kebutuhan anda.

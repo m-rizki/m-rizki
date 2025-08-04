@@ -19,7 +19,7 @@ Authentication is a cornerstone of every serious web application. This project s
 
 ## Flexible Axios Configuration: Cookies & Auth Header
 
-The core of this project’s flexibility is the custom API client configuration in `app/api/axios.ts` using [axios interceptors](https://axios-http.com/docs/interceptors), a powerful feature of the Axios library that acts as middleware to intercept and modify HTTP requests/responses globally before they are processed.
+The core of this project's flexibility is the custom API client configuration in `app/api/axios.ts` using [axios interceptors](https://axios-http.com/docs/interceptors), a powerful feature of the Axios library that acts as middleware to intercept and modify HTTP requests/responses globally before they are processed.
 
 ```typescript
 // app/api/axios.ts
@@ -97,7 +97,7 @@ All token refresh, storage, and header logic is handled for you.
 
 ## Data Loading: clientLoader, Hydrate, and HydrateFallback
 
-[React Router v7](https://reactrouter.com/home) enables powerful [data loading and hydration patterns](https://reactrouter.com/start/framework/data-loading). The `clientLoader` is used to fetch data on the client, and you can force it to run during hydration and before the page renders by setting the `hydrate` property. In this situation, you should render a `HydrateFallback` component to show a fallback UI while the client loader runs. Here’s how you can protect routes and provide a smooth user experience via a protected layout route:
+[React Router v7](https://reactrouter.com/home) enables powerful [data loading and hydration patterns](https://reactrouter.com/start/framework/data-loading). The `clientLoader` is used to fetch data on the client, and you can force it to run during hydration and before the page renders by setting the `hydrate` property. In this situation, you should render a `HydrateFallback` component to show a fallback UI while the client loader runs. Here's how you can protect routes via a protected layout route:
 
 ```typescript
 // app/components/layouts/protected-route.tsx
@@ -132,7 +132,7 @@ export function HydrateFallback() {
 - **hydrate**: If set to true, runs the clientLoader during hydration and before the page renders.
 - **HydrateFallback**: Shows a fallback UI while the clientLoader runs during hydration.
 
-Here’s how you use the API client in your React components for protected actions:
+Here's how you use the API client in your React components for protected actions:
 
 ```typescript
 // app/routes/protected-page.tsx
@@ -202,4 +202,4 @@ export default function ProtectedPage() {
 
 ## Conclusion
 
-r-auth is a practical, template for building secure and flexible authentication in your own apps. Dive into the code, experiment with the configuration, and make it your own—the future of authentication is seamless, secure, and developer-friendly!
+r-auth is a practical, template for building secure and flexible authentication in your own apps. Dive into the code, experiment with the configuration, and make it your own.
