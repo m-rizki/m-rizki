@@ -1,8 +1,11 @@
 import { ArrowDown } from "lucide-react";
 import FaGithub from "../icons/fa-github";
 import FaLinkedin from "../icons/fa-linkedin";
+import { Trans, useTranslation } from "react-i18next";
 
 export default function HomeHero() {
+  let { t } = useTranslation();
+
   return (
     <div className="hero relative min-h-screen">
       <div className="hero-content justify-self-start p-0">
@@ -12,13 +15,12 @@ export default function HomeHero() {
               <img src="/profile-adj.jpg" alt="pp" />
             </div>
           </div>
-          <h1 className="text-5xl font-bold">Software Engineer</h1>
+          <h1 className="text-5xl font-bold">{t("home.hero.title")}</h1>
           <p className="text-base-content/70 py-6">
-            I'm Rizki, a computer science graduate with hands-on experience in
-            front-end development. I enjoy building clean, responsive, and
-            user-friendly interfaces that bring ideas to life. While my current
-            focus is on front-end, I'm also passionate about exploring other
-            areas in tech.
+            <Trans
+              i18nKey="home.hero.description"
+              components={{ em: <em /> }}
+            />
           </p>
           <div className="flex gap-4">
             <a

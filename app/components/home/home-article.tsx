@@ -1,8 +1,16 @@
-import { articles } from "~/utils/articles";
-import ArticleItem from "../article/article-item";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 
-export default function HomeArticle() {
+import ArticleItem from "../article/article-item";
+import type { Article } from "~/routes/apis/articles";
+
+interface HomeArticleProps {
+  articles: Article[];
+}
+
+export default function HomeArticle({ articles }: HomeArticleProps) {
+  let { t } = useTranslation();
+
   return (
     <section className="space-y-16">
       {articles.map((article) => (
@@ -11,7 +19,7 @@ export default function HomeArticle() {
 
       <div className="text-center">
         <Link to={"/articles"} className="btn btn-sm btn-outline btn-accent">
-          More articles
+          {t("home.articles.more")}
         </Link>
       </div>
     </section>

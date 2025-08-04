@@ -1,7 +1,10 @@
 import { FileText, Folder, Home, Info, Menu } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 
 export default function MobileNavigation() {
+  let { t } = useTranslation();
+
   return (
     <div className="md:hidden">
       <div className="dropdown dropdown-end">
@@ -18,22 +21,22 @@ export default function MobileNavigation() {
           <li>
             <Link to={"/"}>
               <Home size={20} />
-              Home
+              {t("navigation.home")}
             </Link>
           </li>
           <li>
             <Link to={"/about"}>
-              <Info size={20} /> About
+              <Info size={20} /> {t("navigation.about")}
             </Link>
           </li>
           <li>
             <Link to={"/projects"}>
-              <Folder size={20} /> Projects
+              <Folder size={20} /> {t("navigation.projects")}
             </Link>
           </li>
           <li>
             <Link to={"/articles"}>
-              <FileText size={20} /> Articles
+              <FileText size={20} /> {t("navigation.articles")}
             </Link>
           </li>
         </ul>

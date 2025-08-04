@@ -1,0 +1,207 @@
+---
+author: "Muhamad Rizki"
+date: "2025-05-24"
+title: "Proyek : r-auth - Sistem Autentikasi dengan Express dan React Router v7"
+description: "Sistem autentikasi *full-stack* yang mendemonstrasikanfleksibilitas penggunaan JWT, baik melalui *HTTP-only cookies* maupun *Authorization headers*. Dibangun menggunakan React Router v7 (*frontend*) dan Express.js (*backend*) proyek ini memungkinkan Anda memilih metode autentikasi yang diinginkan dengan sedikit penyesuaian"
+---
+
+# {frontmatter.title}
+
+Autentikasi merupakan salah satu fondasi dari setiap aplikasi web. Proyek ini menunjukkan bagaimana anda bisa membangun sistem autentikasi yang kuat, aman, dan fleksibel menggunakan React, TypeScript, dan Express.js. Hanya dengan sedikit perubahan konfigurasi, anda bisa dengan mudah beralih antara [*HTTP-only cookies*](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies#security), [*Authorization headers*](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Authorization), atau menggunakan keduanya sekaligus.
+
+---
+
+## Alur Kerja Visual
+
+![Core workflow](/article-images/r-auth-workflow.png)
+
+---
+
+## Konfigurasi Axios yang Fleksibel: Cookies & Auth Header
+
+Inti dari fleksibilitas proyek ini terletak pada konfigurasi custom API client di `app/api/axios.ts` menggunakan [*axios interceptors*](https://axios-http.com/docs/interceptors), fitur *powerful* dari library Axios yang berfungsi seperti *middleware* untuk mencegat dan memodifikasi HTTP request/response secara global sebelum diproses.
+
+```typescript
+// app/api/axios.ts
+function createApiInstance(config: ApiConfig = defaultConfig) {
+  api.interceptors.request.use(
+    (requestConfig) => {
+      if (config.useAuthHeader) {
+        const token = getToken(config.tokenStorageKey);
+        if (token) {
+          requestConfig.headers.Authorization = `Bearer ${token}`;
+        }
+      }
+      return requestConfig;
+    },
+    (error) => Promise.reject(error),
+  );
+
+  api.interceptors.response.use(
+    (response) => {
+      if (config.useAuthHeader && response.data?.token) {
+        setToken(response.data.token, config.tokenStorageKey);
+      }
+      return response;
+    },
+    async (error) => {
+      const originalRequest = error.config;
+      if (
+        error.response &&
+        error.response.status === 401 &&
+        !originalRequest._retry &&
+        !originalRequest.url.endsWith("/login") &&
+        !originalRequest.url.endsWith("/refresh-token")
+      ) {
+        // ...token refresh logic...
+      }
+      return Promise.reject(error);
+    },
+  );
+}
+```
+
+API client ini dirancang agar fleksibel. anda bisa menggunakan *HTTP-only cookies* (default), *Authorization header*, atau keduanya hanya dengan mengubah bagian import-nya.
+
+```typescript
+// app/api/axios.ts
+export const apiWithCredentials = createApiInstance({
+  useCredentials: true, // HTTP-only cookies (default)
+  useAuthHeader: false,
+});
+
+export const apiWithAuthHeader = createApiInstance({
+  useCredentials: false,
+  useAuthHeader: true, // Bearer token in header
+  tokenStorageKey: "accessToken",
+});
+
+export const apiWithBoth = createApiInstance({
+  useCredentials: true,
+  useAuthHeader: true,
+  tokenStorageKey: "accessToken",
+});
+```
+
+Beralih antar metode:
+
+```typescript
+import apiWithCredentials from "~/api/axios"; // cookies (default)
+import { apiWithAuthHeader } from "~/api/axios"; // header
+import { apiWithBoth } from "~/api/axios"; // both
+```
+
+Semua logika terkait refresh token, penyimpanan, dan header sudah ditangani secara otomatis.
+
+---
+
+## Data Loading: clientLoader, Hydrate, dan HydrateFallback
+
+[React Router v7](https://reactrouter.com/home) mendukung pola [*data loading* dan *hydration*](https://reactrouter.com/start/framework/data-loading) yang powerful. `clientLoader` digunakan untuk mengambil data di sisi client, dan anda bisa memaksa agar loader ini dijalankan saat proses *hydration* dan sebelum halaman dirender dengan mengatur properti `hydrate`. Dalam kondisi ini, anda sebaiknya merender komponen `HydrateFallback` untuk menampilkan UI fallback sementara proses `clientLoader` berjalan.
+
+Berikut cara melindungi *route* melalui *protected layout route*:
+
+```typescript
+// app/components/layouts/protected-route.tsx
+import apiWithCredentials from "~/api/axios";
+import { data, Outlet } from "react-router";
+import { serverUrl } from "utils/server-util";
+
+export async function clientLoader() {
+  try {
+    await apiWithCredentials.get(serverUrl + "/me");
+    return null;
+  } catch (error) {
+    console.error("Error fetching user data:", error);
+    throw data("Unauthorized", { status: 401 });
+  }
+}
+
+clientLoader.hydrate = true as const;
+
+export function HydrateFallback() {
+  return (
+    <div className="hero min-h-screen">
+      <div className="hero-content text-center">
+        <p>Loading...</p>
+      </div>
+    </div>
+  );
+}
+```
+
+- **clientLoader**: Mengambil data di sisi client (browser). Bisa dipaksa untuk dijalankan saat *hydration*.
+- **hydrate**: Jika diatur ke `true`, maka `clientLoader` akan dijalankan saat hydration dan sebelum halaman dirender.
+- **HydrateFallback**: Menampilkan *UI fallback* sementara `clientLoader` berjalan saat *hydration*.
+
+Berikut cara menggunakan API client di komponen React anda untuk *action* yang membutuhkan proteksi:
+
+```typescript
+// app/routes/protected-page.tsx
+import apiWithCredentials from "~/api/axios";
+import { Link, useNavigate } from "react-router";
+import { serverUrl } from "utils/server-util";
+
+export default function ProtectedPage() {
+  const navigate = useNavigate();
+
+  const handleMe = async () => {
+    try {
+      const response = await apiWithCredentials.get(serverUrl + "/me");
+      const data = response.data;
+      alert("Name: " + data.user?.name);
+    } catch (error) {
+      alert("Error fetching user data");
+      navigate("/");
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      const response = await apiWithCredentials.post(serverUrl + "/logout");
+      alert(response.data.message);
+    } finally {
+      navigate("/");
+    }
+  };
+
+  const handleRefreshToken = async () => {
+    try {
+      const response = await apiWithCredentials.post(
+        serverUrl + "/refresh-token"
+      );
+      alert(response.data.message);
+    } catch (error) {
+      alert("Error refreshing token");
+      navigate("/");
+    }
+  };
+
+  return (
+    <div>
+      <button onClick={handleMe}>me</button>
+      <button onClick={handleRefreshToken}>refresh-token</button>
+      <button onClick={handleLogout}>logout</button>
+    </div>
+  );
+}
+```
+
+- **handleMe**: Mengambil data user dari endpoint yang terproteksi.
+- **handleLogout**: Logout dan menghapus token/cookies.
+- **handleRefreshToken**: Men-trigger refresh token secara manual.
+
+---
+
+## Getting Started
+
+1. [Clone repo-nya](https://github.com/m-rizki/r-auth) dan install semua dependensinya
+2. Jalankan *backend* dan *frontend*-nya (lihat README)
+3. Coba login dengan `user1/password1` atau `user2/password2`
+4. Ubah bagian import API untuk mencoba mode autentikasi yang berbeda
+
+---
+
+## Kesimpulan
+
+**r-auth** adalah template praktis untuk membangun sistem autentikasi yang aman dan fleksibel di aplikasi anda. Jelajahi *source code*-nya, eksperimen dengan konfigurasinya, dan sesuaikan dengan kebutuhan anda.

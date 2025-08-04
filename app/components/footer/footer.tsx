@@ -1,21 +1,24 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 
 export default function Footer() {
+  let { t } = useTranslation();
+
   return (
     <footer className="footer lg:footer-horizontal border-base-content/10 text-base-content mt-24 items-center border-t px-8 py-12 sm:px-16 lg:px-32 xl:px-64">
       <aside className="grid-flow-col items-center">
         <nav className="grid grid-flow-col gap-4">
           <Link to={"/"} className="link link-hover">
-            Home
+            {t("navigation.home")}
           </Link>
           <Link to={"/about"} className="link link-hover">
-            About
+            {t("navigation.about")}
           </Link>
           <Link to={"/projects"} className="link link-hover">
-            Projects
+            {t("navigation.projects")}
           </Link>
           <Link to={"/articles"} className="link link-hover">
-            Articles
+            {t("navigation.articles")}
           </Link>
         </nav>
       </aside>
