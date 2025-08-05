@@ -18,10 +18,11 @@ export default function handleRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
-  routerContext: EntryContext,
+  entryContext: EntryContext,
   // loadContext: AppLoadContext,
   // If you have middleware enabled:
-  loadContext: unstable_RouterContextProvider,
+  // loadContext: unstable_entryContextProvider,
+  routerContext: unstable_RouterContextProvider,
 ) {
   return new Promise((resolve, reject) => {
     let shellRendered = false;
@@ -30,13 +31,13 @@ export default function handleRequest(
     // Ensure requests from bots and SPA Mode renders wait for all content to load before responding
     // https://react.dev/reference/react-dom/server/renderToPipeableStream#waiting-for-all-content-to-load-for-crawlers-and-static-generation
     let readyOption: keyof RenderToPipeableStreamOptions =
-      (userAgent && isbot(userAgent)) || routerContext.isSpaMode
+      (userAgent && isbot(userAgent)) || entryContext.isSpaMode
         ? "onAllReady"
         : "onShellReady";
 
     const { pipe, abort } = renderToPipeableStream(
-      <I18nextProvider i18n={getInstance(loadContext)}>
-        <ServerRouter context={routerContext} url={request.url} />
+      <I18nextProvider i18n={getInstance(routerContext)}>
+        <ServerRouter context={entryContext} url={request.url} />
       </I18nextProvider>,
       {
         [readyOption]() {
