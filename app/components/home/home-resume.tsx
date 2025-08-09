@@ -38,7 +38,7 @@ export default function HomeResume() {
 
       <a
         target="_blank"
-        href="/documents/resume/en_cv_m_rizki_22_july_2025.pdf"
+        href="/documents/resume/en_cv_m_rizki_9_aug_2025.pdf"
         className="btn btn-sm btn-ghost btn-accent btn-block border-base-content/20 hover:border-none"
       >
         Download Resume
