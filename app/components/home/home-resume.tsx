@@ -24,7 +24,7 @@ export default function HomeResume() {
   const getURLCV = (lng: string) => {
     if (lng === "id") return "/documents/resume/id_cv_m_rizki_22_july_2025.pdf";
 
-    return "/documents/resume/en_cv_m_rizki_22_july_2025.pdf";
+    return "/documents/resume/en_cv_m_rizki_9_aug_2025.pdf";
   };
 
   return (
