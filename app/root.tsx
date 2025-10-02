@@ -32,7 +32,7 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
-export const unstable_middleware = [i18nextMiddleware];
+export const middleware: Route.MiddlewareFunction[] = [i18nextMiddleware];
 
 export async function loader({ context }: Route.LoaderArgs) {
   let locale = getLocale(context);
